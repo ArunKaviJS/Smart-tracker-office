@@ -1,6 +1,0 @@
-deviceClaimId,deviceId,warrentyType,doneBy,claimNotes,resolveNotes,resolvedDate,createdOn,status
-1,18,"Casing Set, Electronic Board, Bracket",18,need to replace all the parts,The trolley warranty claim is resolved.,2026-03-17 09:35:16,2026-02-23 10:54:06,1
-2,19,Casing Set,76,Tracker device has stopped working.,,,2026-03-17 09:39:45,2
-3,18,Entire Tracker,18,Tracker device has stopped working.,,,2026-03-17 09:41:18,2
-4,1,Entire Tracker,18,Tracker device has stopped working.,Tracker issue resolved under warranty service.,2026-03-17 09:43:18,2026-03-17 09:42:49,1
-5,1,"Casing Set, Electronic Board, Bracket",18,Tracker device issue observed within warranty period.,,,2026-03-17 09:43:46,2
