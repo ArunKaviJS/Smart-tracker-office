@@ -1,0 +1,30 @@
+moduleId,moduleName,subModuleName,resource,permissions,createdOn,modifiedOn,status
+1,Dashboard,Dashboard,dashboard,"[""view"", ""action""]",2025-05-15 07:27:12,,1
+2,Trolley,List & Details,trolley_Details,"[""view"", ""action"", ""export""]",2025-05-15 07:27:12,,1
+3,Trolley,Manage Maintenance,trolley_maintenance,"[""action""]",2025-05-15 07:27:12,,1
+4,Trolley,Trips,trolley_trips,"[""view""]",2025-05-15 07:27:13,,1
+5,Trolley,Geozone Visit,trolley_geozone,"[""view""]",2025-05-15 07:27:13,,1
+6,Trolley,Alerts,trolley_alerts,"[""view"", ""action""]",2025-05-15 07:27:14,,1
+7,Trolley,Movement History,trolley_movement,"[""view""]",2025-05-15 07:30:21,,1
+8,Geozone,Overview,geozone_overview,"[""view""]",2025-05-15 07:30:21,,1
+9,Geozone,List,geozone_list,"[""view"",""action"", ""export""]",2025-05-15 07:30:22,,1
+10,Geozone,Tags,geozone_tags,"[""view"",""action""]",2025-05-15 07:30:22,,1
+11,Geozone,Visits,geozone_visits,"[""view""]",2025-05-15 07:30:23,,1
+12,Nest,List & Details,nest_list,"[""view"", ""action""]",2025-05-15 07:30:23,,1
+13,Nest,Manage Active Status,nest_management,"[""action""]",2025-05-15 07:30:24,,1
+14,Tracker,List,tracker_list,"[""view"", ""action""]",2025-05-15 07:35:27,,1
+15,Tracker,Manage Warranty,tracker_warranty,"[ ""action""]",2025-05-15 07:35:28,,1
+16,Battery,List,battery_list,"[""view"", ""action""]",2025-05-15 07:35:29,,1
+17,Battery,Manage Warranty,battery_Warranty,"[ ""action""]",2025-05-15 07:35:29,,1
+18,Alerts,List,alerts_list,"[""view"",  ""action"", ""export""]",2025-05-15 07:35:30,,1
+19,Duty Roster,Details,duty_roster,"[""view"", ""action""]",2025-05-15 07:35:30,,1
+20,Users & Roles,Users,users,"[""view"",  ""action"", ""export""]",2025-05-15 07:35:31,,1
+21,Users & Roles,Roles,roles,"[""view"", ""action"", ""export""]",2025-05-15 07:35:31,,1
+22,Configuration,Geolayer,configuration_geolayer,"[""view"", ""action""]",2025-05-15 07:35:32,,1
+23,Configuration,Wifi,configuration_wifi,"[""view"", ""action""]",2025-05-15 07:35:32,,1
+24,Configuration,Tracker Configuration,configuration_tracker,"[""view"", ""action""]",2025-05-15 07:35:33,,1
+25,Reports,Trolley Daily Report,trolley_report,"[""view"", ""action""]",2025-05-15 07:35:33,,1
+26,Reports,Duty Roster Report,duty_roster_report,"[""view"", ""action""]",2025-05-15 07:35:34,,1
+27,Reports,Alert Report,alert_report,"[""view"", ""action""]",2025-05-15 07:35:34,,1
+28,Wifi Beacon,List,wifi_list,"[""view"", ""action""]",2025-09-16 11:23:09,,1
+29,Wifi Beacon,Manage Warranty,wifi_Warranty,"[""action""]",2025-09-16 11:23:09,,1

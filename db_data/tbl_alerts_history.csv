@@ -1,0 +1,20 @@
+historyId,alertId,title,notes,doneBy,createdOn,status,id,type
+1,1,Alert Triggered,Trolley A1 hasn't moved in 8 hours,0,2025-12-12 18:05:13,1,78,trigger
+2,1,Alert Resolved,Automatically resolved by the system.,0,2025-12-12 13:18:07,1,0,resolve
+3,2,Alert Triggered,Trolley G1 is out of zone,0,2025-12-15 07:17:17,1,122,trigger
+4,2,Assignee Added,Assignee Added For Trolley G1,18,2025-12-15 07:18:06,1,76,assign
+5,2,Reassigned,"Reassign to CHP
+",18,2025-12-15 07:20:21,1,20,assign
+6,2,Alert Resolved,Resolve the alert testing,20,2025-12-15 07:21:51,1,0,resolve
+7,3,Alert Triggered,Trolley G1 is out of zone,0,2025-12-15 07:24:11,1,122,trigger
+8,3,Alert Resolved,Automatically resolved by the system.,0,2025-12-15 07:30:32,1,0,resolve
+9,4,Alert Triggered,Trolley D1 battery is low,0,2025-12-15 09:38:48,1,80,trigger
+10,5,Alert Triggered,Trolley JTR1-92B3 battery is low,0,2026-02-23 10:24:52,1,78,trigger
+11,5,Alert Resolved,Automatically resolved by the system.,0,2026-02-23 10:27:44,1,0,resolve
+12,6,Alert Triggered,Trolley JTR1-92B3 battery is low,0,2026-03-10 09:40:45,1,48,trigger
+13,7,Alert Triggered,Trolley HTR1-34E7 battery is low,0,2026-03-16 06:00:22,1,78,trigger
+14,4,Assignee Added,Assignee Added For Trolley DTR1-61E5,18,2026-03-17 00:47:38,1,108,assign
+15,4,Alert Resolved,The issue is resolved ,18,2026-03-17 00:52:42,1,0,resolve
+16,7,Assignee Added,Assignee Added For Trolley HTR1-34E7,18,2026-03-17 09:55:55,1,76,assign
+17,8,Alert Triggered,Trolley CTR1-38D7 is out of zone,0,2026-03-31 10:28:15,1,48,trigger
+18,9,Alert Triggered,Trolley BTR1-94C2 is out of zone,0,2026-03-31 10:41:19,1,78,trigger

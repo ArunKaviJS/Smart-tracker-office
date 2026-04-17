@@ -1,0 +1,10 @@
+maintenanceId,type,reason,completedNotes,doneBy,image1,image2,createdOn,modifiedOn,status,trolleyId
+1,major,Broken & Needs Welding,yes,18,,,2026-02-23 10:32:56,2026-03-05 10:42:38,1,9
+2,minor,Oiling & Greasing,,18,,,2026-02-24 05:50:34,,2,11
+3,major,Broken & Needs Welding,completed,18,,,2026-03-06 07:37:17,2026-03-16 05:19:16,1,10
+4,minor,Oiling & Greasing,Resolve,76,,,2026-03-09 10:23:08,2026-03-09 10:23:45,1,9
+5,minor,Parts Replacement,Battery replaced,18,,,2026-03-16 05:19:30,2026-03-16 05:19:48,1,10
+6,major,Broken & Needs Welding,Changed the needle,18,,,2026-03-16 05:20:28,2026-03-16 05:20:58,1,10
+7,minor,Oiling & Greasing,Maintenance done,18,,,2026-03-16 05:21:30,2026-03-16 05:22:08,1,10
+8,major,Accident,test,18,https://s-tracker-file-storage-dev.s3.ap-southeast-1.amazonaws.com/trolley/1773739287297.jfif,https://s-tracker-file-storage-dev.s3.ap-southeast-1.amazonaws.com/trolley/1773739287298.jfif,2026-03-17 09:21:28,2026-03-31 10:25:21,1,3
+9,minor,Parts Replacement,,18,,,2026-03-17 09:22:31,,2,9

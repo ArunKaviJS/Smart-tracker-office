@@ -1,0 +1,174 @@
+permissionId,roleId,moduleName,subModuleName,resource,permissions,createdOn,modifiedOn,status
+267,2,Mobile Application,Mobile Application,mobile_application,"[""action""]",2025-05-26 08:34:15,,1
+294,22,Users & Roles,Users,users,"[""view"",""action"",""export""]",2025-05-26 15:50:52,,1
+295,22,Users & Roles,Roles,roles,"[""view"",""action""]",2025-05-26 15:50:52,,1
+338,23,Dashboard,Dashboard,dashboard,"[""action"",""export"",""view""]",2025-06-02 09:11:26,,1
+339,23,Trolley,List & Details,trolley_Details,"[""view""]",2025-06-02 09:11:26,,1
+340,23,Trolley,Manage Maintenance,trolley_maintenance,"[""view""]",2025-06-02 09:11:26,,1
+341,23,Geozone,Overview,geozone_overview,"[""view""]",2025-06-02 09:11:26,,1
+342,23,Geozone,Tags,geozone_tags,"[""view""]",2025-06-02 09:11:26,,1
+343,23,Geozone,Visits,geozone_visits,"[""view""]",2025-06-02 09:11:26,,1
+344,23,Nest,List & Details,nest_list,"[""view""]",2025-06-02 09:11:26,,1
+345,23,Nest,Manage Active Status,nest_management,"[""view"",""action""]",2025-06-02 09:11:26,,1
+346,23,Tracker,List,tracker_list,"[""view""]",2025-06-02 09:11:26,,1
+347,23,Tracker,Manage Warranty,tracker_warranty,"[""view""]",2025-06-02 09:11:26,,1
+441,30,Trolley,List & Details,trolley_Details,"[""view""]",2025-06-03 10:58:11,,1
+442,30,Trolley,Manage Maintenance,trolley_maintenance,"[""view""]",2025-06-03 10:58:11,,1
+443,30,Trolley,Alerts,trolley_alerts,"[""action"",""view""]",2025-06-03 10:58:11,,1
+444,30,Geozone,Tags,geozone_tags,"[""view""]",2025-06-03 10:58:11,,1
+445,30,Battery,List,battery_list,"[""action"",""view""]",2025-06-03 10:58:11,,1
+446,30,Battery,Manage Warranty,battery_Warranty,"[""action"",""view""]",2025-06-03 10:58:11,,1
+447,30,Alerts,List,alerts_list,"[""action"",""export"",""view""]",2025-06-03 10:58:11,,1
+448,30,Users & Roles,Users,users,"[""view"",""action"",""export""]",2025-06-03 10:58:11,,1
+449,30,Configuration,Wifi,configuration_wifi,"[""action"",""export"",""view""]",2025-06-03 10:58:11,,1
+504,31,Trolley,List & Details,trolley_Details,"[""action"",""view""]",2025-06-11 10:16:26,,1
+505,31,Trolley,Manage Maintenance,trolley_maintenance,"[""action"",""view""]",2025-06-11 10:16:26,,1
+506,31,Trolley,Trips,trolley_trips,"[""view""]",2025-06-11 10:16:26,,1
+507,31,Trolley,Geozone Visit,trolley_geozone,"[""view""]",2025-06-11 10:16:26,,1
+508,31,Trolley,Alerts,trolley_alerts,"[""action"",""view""]",2025-06-11 10:16:26,,1
+509,31,Trolley,Movement History,trolley_movement,"[""view""]",2025-06-11 10:16:26,,1
+510,31,Nest,List & Details,nest_list,"[""action"",""view""]",2025-06-11 10:16:26,,1
+511,31,Nest,Manage Active Status,nest_management,"[""action"",""view""]",2025-06-11 10:16:26,,1
+512,31,Users & Roles,Users,users,"[""view"",""action""]",2025-06-11 10:16:26,,1
+513,31,Configuration,Wifi,configuration_wifi,"[""view"",""action""]",2025-06-11 10:16:26,,1
+541,33,Dashboard,Dashboard,dashboard,"[""view"",""action"",""export""]",2025-07-22 06:47:35,,1
+542,33,Trolley,List & Details,trolley_Details,"[""view"",""action"",""export""]",2025-07-22 06:47:35,,1
+543,33,Trolley,Manage Maintenance,trolley_maintenance,"[""view""]",2025-07-22 06:47:35,,1
+544,33,Trolley,Trips,trolley_trips,"[""view""]",2025-07-22 06:47:35,,1
+545,33,Trolley,Geozone Visit,trolley_geozone,"[""view""]",2025-07-22 06:47:35,,1
+546,33,Trolley,Movement History,trolley_movement,"[""view""]",2025-07-22 06:47:35,,1
+547,33,Geozone,Overview,geozone_overview,"[""view""]",2025-07-22 06:47:35,,1
+548,33,Geozone,List,geozone_list,"[""view"",""action"",""export""]",2025-07-22 06:47:35,,1
+549,33,Geozone,Tags,geozone_tags,"[""view"",""action""]",2025-07-22 06:47:35,,1
+550,33,Geozone,Visits,geozone_visits,"[""view""]",2025-07-22 06:47:35,,1
+551,33,Tracker,List,tracker_list,"[""view"",""action""]",2025-07-22 06:47:35,,1
+552,33,Tracker,Manage Warranty,tracker_warranty,"[""view"",""action""]",2025-07-22 06:47:35,,1
+553,33,Battery,List,battery_list,"[""view"",""action""]",2025-07-22 06:47:35,,1
+554,33,Battery,Manage Warranty,battery_Warranty,"[""view"",""action""]",2025-07-22 06:47:35,,1
+555,33,Users & Roles,Users,users,"[""view"",""action"",""export""]",2025-07-22 06:47:35,,1
+556,33,Configuration,Geolayer,configuration_geolayer,"[""view"",""action""]",2025-07-22 06:47:35,,1
+557,33,Configuration,Wifi,configuration_wifi,"[""view"",""action"",""export""]",2025-07-22 06:47:35,,1
+558,33,Configuration,Tracker Configuration,configuration_tracker,"[""view"",""action""]",2025-07-22 06:47:35,,1
+559,1,Dashboard,Dashboard,dashboard,"[""view"", ""action""]",2025-07-28 13:46:50,,1
+560,1,Trolley,List & Details,trolley_Details,"[""action"",""export"",""view""]",2025-07-28 13:46:50,,1
+561,1,Trolley,Manage Maintenance,trolley_maintenance,"[""action"",""view""]",2025-07-28 13:46:50,,1
+562,1,Trolley,Trips,trolley_trips,"[""view""]",2025-07-28 13:46:50,,1
+563,1,Trolley,Geozone Visit,trolley_geozone,"[""view""]",2025-07-28 13:46:50,,1
+564,1,Trolley,Alerts,trolley_alerts,"[""action"",""view""]",2025-07-28 13:46:50,,1
+565,1,Trolley,Movement History,trolley_movement,"[""view""]",2025-07-28 13:46:50,,1
+566,1,Geozone,Overview,geozone_overview,"[""view""]",2025-07-28 13:46:50,,1
+567,1,Geozone,List,geozone_list,"[""action"",""export"",""view""]",2025-07-28 13:46:50,,1
+568,1,Geozone,Tags,geozone_tags,"[""action"",""view""]",2025-07-28 13:46:50,,1
+569,1,Geozone,Visits,geozone_visits,"[""view""]",2025-07-28 13:46:50,,1
+570,1,Nest,List & Details,nest_list,"[""view"", ""action""]",2025-07-28 13:46:50,,1
+571,1,Nest,Manage Active Status,nest_management,"[""action""]",2025-07-28 13:46:50,,1
+572,1,Tracker,List,tracker_list,"[""action"",""view""]",2025-07-28 13:46:50,,1
+573,1,Tracker,Manage Warranty,tracker_warranty,"[""action"",""view""]",2025-07-28 13:46:50,,1
+574,1,Battery,List,battery_list,"[""action"",""view""]",2025-07-28 13:46:50,,1
+575,1,Battery,Manage Warranty,battery_Warranty,"[""action"",""view""]",2025-07-28 13:46:50,,1
+576,1,Alerts,List,alerts_list,"[""action"",""export"",""view""]",2025-07-28 13:46:50,,1
+577,1,Duty Roster,Details,duty_roster,"[""action"",""view""]",2025-07-28 13:46:50,,1
+578,1,Users & Roles,Users,users,"[""action"",""export"",""view""]",2025-07-28 13:46:50,,1
+579,1,Users & Roles,Roles,roles,"[""action"",""view"",""export""]",2025-07-28 13:46:50,,1
+580,1,Configuration,Geolayer,configuration_geolayer,"[""action"",""view""]",2025-07-28 13:46:50,,1
+581,1,Configuration,Wifi,configuration_wifi,"[""view"", ""action""]",2025-07-28 13:46:50,,1
+582,1,Configuration,Tracker Configuration,configuration_tracker,"[""action"",""view""]",2025-07-28 13:46:50,,1
+583,1,Reports,Trolley Daily Report,trolley_report,"[""view"", ""action""]",2025-07-28 13:46:50,,1
+584,1,Reports,Duty Roster Report,duty_roster_report,"[""view"", ""action""]",2025-07-28 13:46:50,,1
+585,1,Reports,Alert Report,alert_report,"[""view"", ""action""]",2025-07-28 13:46:50,,1
+586,32,Dashboard,Dashboard,dashboard,"[""view""]",2025-08-07 06:02:43,,1
+587,32,Trolley,List & Details,trolley_Details,"[""view""]",2025-08-07 06:02:43,,1
+588,32,Trolley,Manage Maintenance,trolley_maintenance,"[""view""]",2025-08-07 06:02:43,,1
+589,32,Trolley,Trips,trolley_trips,"[""view""]",2025-08-07 06:02:43,,1
+590,32,Trolley,Geozone Visit,trolley_geozone,"[""view""]",2025-08-07 06:02:43,,1
+591,32,Trolley,Alerts,trolley_alerts,"[""view""]",2025-08-07 06:02:43,,1
+592,32,Trolley,Movement History,trolley_movement,"[""view""]",2025-08-07 06:02:43,,1
+593,32,Geozone,Overview,geozone_overview,"[""view""]",2025-08-07 06:02:43,,1
+594,32,Geozone,List,geozone_list,"[""view""]",2025-08-07 06:02:43,,1
+595,32,Geozone,Tags,geozone_tags,"[""view""]",2025-08-07 06:02:43,,1
+596,32,Geozone,Visits,geozone_visits,"[""view""]",2025-08-07 06:02:43,,1
+597,32,Nest,List & Details,nest_list,"[""view""]",2025-08-07 06:02:43,,1
+598,32,Nest,Manage Active Status,nest_management,"[""view""]",2025-08-07 06:02:43,,1
+599,32,Tracker,List,tracker_list,"[""view""]",2025-08-07 06:02:43,,1
+600,32,Tracker,Manage Warranty,tracker_warranty,"[""view""]",2025-08-07 06:02:43,,1
+601,32,Battery,List,battery_list,"[""view""]",2025-08-07 06:02:43,,1
+602,32,Battery,Manage Warranty,battery_Warranty,"[""view""]",2025-08-07 06:02:43,,1
+603,32,Alerts,List,alerts_list,"[""view""]",2025-08-07 06:02:43,,1
+604,32,Duty Roster,Details,duty_roster,"[""view""]",2025-08-07 06:02:43,,1
+605,32,Users & Roles,Users,users,"[""view""]",2025-08-07 06:02:43,,1
+606,32,Users & Roles,Roles,roles,"[""view""]",2025-08-07 06:02:43,,1
+607,32,Reports,Trolley Daily Report,trolley_report,"[""view""]",2025-08-07 06:02:43,,1
+608,32,Reports,Duty Roster Report,duty_roster_report,"[""view""]",2025-08-07 06:02:43,,1
+609,32,Reports,Alert Report,alert_report,"[""view""]",2025-08-07 06:02:43,,1
+610,1,Wifi Beacon,List,wifi_list,"[""view"", ""action""]",2025-09-16 11:29:37,,1
+611,1,Wifi Beacon,Manage Warranty,wifi_Warranty,"[""action"",""view""]",2025-09-16 11:29:37,,1
+615,35,Dashboard,Dashboard,dashboard,"[""view"",""action""]",2025-09-17 05:22:29,,1
+616,35,Trolley,List & Details,trolley_Details,"[""view"",""action"",""export""]",2025-09-17 05:22:29,,1
+617,35,Trolley,Manage Maintenance,trolley_maintenance,"[""view"",""action""]",2025-09-17 05:22:29,,1
+618,35,Trolley,Trips,trolley_trips,"[""view""]",2025-09-17 05:22:29,,1
+619,35,Trolley,Geozone Visit,trolley_geozone,"[""view""]",2025-09-17 05:22:29,,1
+620,35,Trolley,Alerts,trolley_alerts,"[""view"",""action""]",2025-09-17 05:22:29,,1
+621,35,Trolley,Movement History,trolley_movement,"[""view""]",2025-09-17 05:22:29,,1
+622,35,Geozone,Overview,geozone_overview,"[""view""]",2025-09-17 05:22:29,,1
+623,35,Geozone,List,geozone_list,"[""view"",""action"",""export""]",2025-09-17 05:22:29,,1
+624,35,Geozone,Tags,geozone_tags,"[""view"",""action""]",2025-09-17 05:22:29,,1
+625,35,Geozone,Visits,geozone_visits,"[""view""]",2025-09-17 05:22:29,,1
+626,35,Nest,List & Details,nest_list,"[""view"",""action""]",2025-09-17 05:22:29,,1
+627,35,Nest,Manage Active Status,nest_management,"[""view"",""action""]",2025-09-17 05:22:29,,1
+628,35,Tracker,List,tracker_list,"[""view"",""action""]",2025-09-17 05:22:29,,1
+629,35,Tracker,Manage Warranty,tracker_warranty,"[""view"",""action""]",2025-09-17 05:22:29,,1
+630,35,Battery,List,battery_list,"[""view"",""action""]",2025-09-17 05:22:29,,1
+631,35,Battery,Manage Warranty,battery_Warranty,"[""view"",""action""]",2025-09-17 05:22:29,,1
+632,35,Alerts,List,alerts_list,"[""view"",""action"",""export""]",2025-09-17 05:22:29,,1
+633,35,Duty Roster,Details,duty_roster,"[""view"",""action""]",2025-09-17 05:22:29,,1
+634,35,Users & Roles,Users,users,"[""view"",""action"",""export""]",2025-09-17 05:22:29,,1
+635,35,Users & Roles,Roles,roles,"[""view"",""action"",""export""]",2025-09-17 05:22:29,,1
+636,35,Configuration,Geolayer,configuration_geolayer,"[""view"",""action""]",2025-09-17 05:22:29,,1
+637,35,Configuration,Wifi,configuration_wifi,"[""view"",""action""]",2025-09-17 05:22:29,,1
+638,35,Configuration,Tracker Configuration,configuration_tracker,"[""view"",""action""]",2025-09-17 05:22:29,,1
+639,35,Reports,Trolley Daily Report,trolley_report,"[""view"",""action""]",2025-09-17 05:22:29,,1
+640,35,Reports,Duty Roster Report,duty_roster_report,"[""view"",""action""]",2025-09-17 05:22:29,,1
+641,35,Reports,Alert Report,alert_report,"[""view"",""action""]",2025-09-17 05:22:29,,1
+642,35,Wifi Beacon,List,wifi_list,"[""view"",""action""]",2025-09-17 05:22:29,,1
+643,35,Wifi Beacon,Manage Warranty,wifi_Warranty,"[""view"",""action""]",2025-09-17 05:22:29,,1
+644,36,Dashboard,Dashboard,dashboard,"[""view""]",2025-09-23 05:42:35,,1
+650,34,Dashboard,Dashboard,dashboard,"[""action"",""view""]",2025-10-01 04:38:12,,1
+651,34,Tracker,List,tracker_list,"[""view""]",2025-10-01 04:38:12,,1
+652,34,Tracker,Manage Warranty,tracker_warranty,"[""action"",""view""]",2025-10-01 04:38:12,,1
+653,34,Wifi Beacon,List,wifi_list,"[""view""]",2025-10-01 04:38:12,,1
+654,34,Wifi Beacon,Manage Warranty,wifi_Warranty,"[""action"",""view""]",2025-10-01 04:38:12,,1
+655,37,Dashboard,Dashboard,dashboard,"[""view""]",2025-10-06 10:13:27,,1
+656,37,Trolley,List & Details,trolley_Details,"[""view"",""action"",""export""]",2025-10-06 10:13:27,,1
+657,37,Trolley,Manage Maintenance,trolley_maintenance,"[""view"",""action""]",2025-10-06 10:13:27,,1
+658,37,Trolley,Trips,trolley_trips,"[""view""]",2025-10-06 10:13:27,,1
+659,37,Trolley,Geozone Visit,trolley_geozone,"[""view""]",2025-10-06 10:13:27,,1
+660,37,Trolley,Alerts,trolley_alerts,"[""view"",""action""]",2025-10-06 10:13:27,,1
+661,37,Trolley,Movement History,trolley_movement,"[""view""]",2025-10-06 10:13:27,,1
+662,37,Geozone,Overview,geozone_overview,"[""view""]",2025-10-06 10:13:27,,1
+663,37,Geozone,List,geozone_list,"[""view"",""action"",""export""]",2025-10-06 10:13:27,,1
+664,37,Geozone,Tags,geozone_tags,"[""view"",""action""]",2025-10-06 10:13:27,,1
+665,37,Geozone,Visits,geozone_visits,"[""view""]",2025-10-06 10:13:27,,1
+666,37,Nest,List & Details,nest_list,"[""view"",""action""]",2025-10-06 10:13:27,,1
+667,37,Nest,Manage Active Status,nest_management,"[""view"",""action""]",2025-10-06 10:13:27,,1
+668,37,Tracker,List,tracker_list,"[""view"",""action""]",2025-10-06 10:13:27,,1
+669,37,Tracker,Manage Warranty,tracker_warranty,"[""view""]",2025-10-06 10:13:27,,1
+670,37,Battery,List,battery_list,"[""view"",""action""]",2025-10-06 10:13:27,,1
+671,37,Battery,Manage Warranty,battery_Warranty,"[""view""]",2025-10-06 10:13:27,,1
+672,37,Alerts,List,alerts_list,"[""view"",""action"",""export""]",2025-10-06 10:13:27,,1
+673,37,Duty Roster,Details,duty_roster,"[""view"",""action""]",2025-10-06 10:13:27,,1
+674,37,Users & Roles,Users,users,"[""view"",""action"",""export""]",2025-10-06 10:13:27,,1
+675,37,Users & Roles,Roles,roles,"[""view"",""action"",""export""]",2025-10-06 10:13:27,,1
+676,37,Configuration,Geolayer,configuration_geolayer,"[""view"",""action""]",2025-10-06 10:13:27,,1
+677,37,Configuration,Wifi,configuration_wifi,"[""view"",""action""]",2025-10-06 10:13:27,,1
+678,37,Configuration,Tracker Configuration,configuration_tracker,"[""view"",""action""]",2025-10-06 10:13:27,,1
+679,37,Reports,Trolley Daily Report,trolley_report,"[""view"",""action""]",2025-10-06 10:13:27,,1
+680,37,Reports,Duty Roster Report,duty_roster_report,"[""view"",""action""]",2025-10-06 10:13:27,,1
+681,37,Reports,Alert Report,alert_report,"[""view"",""action""]",2025-10-06 10:13:27,,1
+682,37,Wifi Beacon,List,wifi_list,"[""view"",""action""]",2025-10-06 10:13:27,,1
+683,37,Wifi Beacon,Manage Warranty,wifi_Warranty,"[""view""]",2025-10-06 10:13:27,,1
+684,38,Dashboard,Dashboard,dashboard,"[""view"",""action""]",2025-10-06 10:13:58,,1
+685,39,Dashboard,Dashboard,dashboard,"[""view"",""action""]",2025-10-06 10:14:08,,1
+690,40,Dashboard,Dashboard,dashboard,"[""view""]",2025-10-13 10:34:48,,1
+691,40,Users & Roles,Users,users,"[""action"",""export"",""view""]",2025-10-13 10:34:48,,1
+692,40,Users & Roles,Roles,roles,"[""action"",""export"",""view""]",2025-10-13 10:34:48,,1
+694,41,Dashboard,Dashboard,dashboard,"[""view"",""action""]",2026-02-24 06:05:46,,1

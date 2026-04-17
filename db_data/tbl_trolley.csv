@@ -1,0 +1,12 @@
+trolleyId,trolleyName,serialNo,deviceId,createdOn,modifiedOn,status,type,maintenanceStatus,lastCleaned
+1,Airside Trolley,BTR1-94C2,2,2025-12-12 13:13:56,2026-02-23 07:26:31,1,airside,no maintenance,
+2,Landside Trolley,ATR1-57B9,1,2025-12-12 13:23:49,2026-02-23 07:25:57,1,landside,no maintenance,2025-12-12 13:24:57
+3,Landside Trolley,CTR1-38D7,3,2025-12-15 05:54:40,2026-02-23 07:27:05,1,landside,no maintenance,
+4,Airside Trolley,DTR1-61E5,4,2025-12-15 05:54:57,2026-02-23 07:28:38,1,airside,no maintenance,
+5,Landside Trolley,ETR1-73A8,5,2025-12-15 05:56:00,2026-02-23 07:33:06,1,landside,no maintenance,
+6,Airside Trolley,FTR1-29F4,6,2025-12-15 05:56:18,2026-02-23 07:33:35,1,airside,no maintenance,
+7,Landside Trolley,GTR1-86C1,7,2025-12-15 05:56:31,2026-02-23 07:34:18,1,landside,no maintenance,2025-12-15 07:10:30
+8,Airside Trolley,HTR1-45D6,9,2026-02-23 09:19:16,,1,airside,no maintenance,2026-02-24 05:45:10
+9,Landside Trolley,JTR1-92B3,10,2026-02-23 09:20:04,,1,landside,minor,2026-02-23 10:30:36
+10,Airside Trolley,HTR1-34E7,8,2026-02-23 09:22:54,,1,airside,no maintenance,2026-03-16 06:25:25
+11,Landside Trolley,KTR1-58A2,11,2026-02-23 09:24:10,,1,landside,minor,

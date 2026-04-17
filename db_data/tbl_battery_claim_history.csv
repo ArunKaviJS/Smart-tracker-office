@@ -1,0 +1,86 @@
+batteryClaimId,batteryId,reason,doneBy,claimNotes,resolveNotes,resolvedDate,createdOn,status
+1,5,"Battery Failure, Reduced Performance",18,Testing Purpose Data,,,2025-04-14 15:15:17,2
+2,11,Battery Failure,18,Testing Purpose,Testing Purpose,2025-04-15 10:14:04,2025-04-15 10:14:00,1
+3,11,Reduced Performance,20,Testing Purpose,Testing Purpose Testing Purpose Testing Purpose,2025-04-15 10:14:33,2025-04-15 10:14:25,1
+4,11,"Battery Failure, Reduced Performance",20,Testing PurposeTesting PurposeTesting PurposeTesting PurposeTesting PurposeTesting PurposeTesting Purpose,Testing PurposeTesting PurposeTesting PurposeTesting PurposeTesting PurposeTesting PurposeTesting PurposeTesting PurposeTesting PurposeTesting Purpose,2025-04-15 10:15:32,2025-04-15 10:15:00,1
+5,11,Battery Failure,18,Testing PurposeTesting PurposeTesting PurposeTesting Purpose,Testing PurposeTesting PurposeTesting PurposeTesting Purpose,2025-04-15 10:16:19,2025-04-15 10:16:04,1
+6,11,Reduced Performance,20,Testing PurposeTesting PurposeTesting Purpose,Testing Purpose,2025-04-15 10:16:52,2025-04-15 10:16:30,1
+7,11,"Battery Failure, Reduced Performance",20,Testing PurposeTesting PurposeTesting PurposeTesting Purpose,Testing Purpose,2025-04-15 10:17:06,2025-04-15 10:16:59,1
+8,11,Reduced Performance,20,Testing PurposeTesting PurposeTesting Purpose,Testing PurposeTesting PurposeTesting PurposeTesting PurposeTesting Purpose,2025-04-15 10:17:15,2025-04-15 10:17:11,1
+9,11,Battery Failure,20,Testing PurposeTesting PurposeTesting Purpose,Testing Purpose,2025-04-15 10:17:24,2025-04-15 10:17:20,1
+10,11,Battery Failure,20,Testing PurposeTesting PurposeTesting PurposeTesting PurposeTesting PurposeTesting Purpose,Testing Purpose,2025-04-15 10:18:02,2025-04-15 10:17:38,1
+11,11,"Battery Failure, Reduced Performance",18,Testing PurposeTesting PurposeTesting Purpose,Testing PurposeTesting Purpose,2025-04-15 10:18:22,2025-04-15 10:18:12,1
+12,11,Battery Failure,64,Testing Purpose,"When entering more than 200 characters in the Notes field while resolving a battery, no clear validation message is displayed. Instead, a toaster message stating ""Error occurred Please Try again "" is shown.ububububibibib",2025-04-16 07:16:54,2025-04-15 10:18:26,1
+13,2,Battery Failure,18,Testing purpose ,"Yes, want to mark the claim as resolved.",2025-04-15 11:56:38,2025-04-15 11:54:24,1
+14,2,"Battery Failure,Reduced Performance",18,Test,Yesterday at the end of the day.,2025-04-15 12:02:34,2025-04-15 12:01:36,1
+15,2,Battery Failure,15,Test,sd,2025-04-17 09:19:17,2025-04-15 12:02:55,1
+16,12,"Battery Failure, Reduced Performance",2,"CLAIM THE BATTERY WARRANTY. Battery Failure Reduced Performance
+CLAM THE WARRANTY CANCEL THE WARRANTY CLOSE THE WARRANTY
+","YES RESOLVE THE BATTERY Are you sure you want to mark the claim as resolved?
+Add Resolve Notes
+
+
+",2025-04-16 05:39:49,2025-04-16 05:32:58,1
+17,12,Battery Failure,20,claim,yes resolve,2025-04-16 05:40:35,2025-04-16 05:40:14,1
+18,12,"Reduced Performance, Battery Failure",20,claim the warranty.,yes,2025-04-16 05:44:07,2025-04-16 05:41:15,1
+19,12,Battery Failure,20,claim,yes resolve,2025-04-16 05:44:29,2025-04-16 05:44:19,1
+20,12,"Battery Failure, Reduced Performance",20,yes claim,yes resolve,2025-04-16 05:44:47,2025-04-16 05:44:40,1
+21,12,Reduced Performance,20,yes claim,yes resolve,2025-04-16 05:45:15,2025-04-16 05:45:08,1
+22,12,Battery Failure,20,yes claim,yes resolve,2025-04-16 05:45:44,2025-04-16 05:45:36,1
+23,12,Reduced Performance,20,yes claim,yes resolve,2025-04-16 05:46:00,2025-04-16 05:45:52,1
+24,12,Battery Failure,20,yes calim,yes resolve,2025-04-16 05:46:23,2025-04-16 05:46:14,1
+25,12,Battery Failure,20,yes claim,yes,2025-04-16 05:47:07,2025-04-16 05:46:32,1
+26,12,Battery Failure,64,claim,"When entering more than 200 characters in the Notes field while resolving a battery, no clear validation message is displayed. Instead, a toaster message stating ""Error occurred Please Try again "" is shown.bububeibwibeifinifeiinfinibibinuwwbf",2025-04-16 07:14:10,2025-04-16 05:47:17,1
+27,12,"Reduced Performance, Battery Failure",64,"Temperature extremes: Batteries perform poorly at very high or low temperatures.
+Low voltage: A battery with low voltage is prone to failure.
+Installation problems: Improper installation can cause.",Buhbjbjbjb,2025-04-16 13:06:23,2025-04-16 07:20:18,1
+28,13,"Reduced Performance, Battery Failure",64,"Installation problems: Improper installation can cause issues.
+Manufacturing errors: Defects in battery production can result in failure.Installation problems: Improper installation.",,,2025-04-16 07:26:05,2
+29,7,"Reduced Performance, Battery Failure",20,"Installation problems: Improper installation can cause issues.
+Manufacturing errors: Defects in battery production can result in failure.",Fufguyiyjgjvbcnzvjsgjshsjbskhishishisbisbisbihsibsibsibsisbisbusvudbjdvkhsjgshhsihjshjsbjbdmhskhldd NDBKSHKHSKHSIHEKHEOJEOJKSJOEJOEJOSJKHSKBSKHAJAVJSGHGSHGSUGSIHSOJAOJKSNKABNSVJAVHGAJHSKJSOJKDJKXHKSHJSGJAHKWHKEOUEDOOSJHITIR RIDIFKCKVKVKGSGFHFHFHFHFHFHFHFJFHGJHSKHSVJSVISGIHSHFJGIHJDHGUSGUFIYIGUFHFJGUFURUTUTITUEYRUGKJGZKHSIHSIHSIHSIHSIBAIBAISGISGDIGSIGSISGISGIGSCFUGIHUDIDIDIDHDIUUTOUTOUTOUTOTU tomorrow toruiudihckchkhckcmh mnvlsjvsljavjsbjsbjsbjdbjdbjdbdjbsjbskheoieojdoheohevkjee,2025-04-16 12:55:35,2025-04-16 07:28:05,1
+30,12,Battery Failure,2,Yes claim the battery  warranty,yes,2025-04-18 05:28:43,2025-04-16 13:08:53,1
+31,2,Battery Failure,15,sc,scs,2025-04-17 09:20:06,2025-04-17 09:19:43,1
+34,2,Battery Failure,15,scsdc,scs,2025-04-17 09:20:16,2025-04-17 09:20:12,1
+36,2,Battery Failure,15,sdc,scs,2025-04-17 09:20:25,2025-04-17 09:20:21,1
+37,2,Battery Failure,15,sc,sdc,2025-04-17 09:20:35,2025-04-17 09:20:29,1
+38,2,Battery Failure,15,scs,sc,2025-04-17 09:20:49,2025-04-17 09:20:42,1
+39,2,Battery Failure,15,sc,sc,2025-04-17 09:20:59,2025-04-17 09:20:54,1
+40,2,Battery Failure,15,sc,sc,2025-04-17 09:21:15,2025-04-17 09:21:07,1
+41,2,Battery Failure,20,sc,Test,2025-07-21 07:24:45,2025-04-17 09:21:20,1
+42,11,"Battery Failure, Reduced Performance",82,Claim the warranty,Resolved,2025-07-17 04:20:06,2025-04-18 05:27:52,1
+43,12,"Battery Failure, Reduced Performance",20,claim the warranty,Resolve the claim,2025-04-22 11:26:41,2025-04-18 05:28:58,1
+44,15,"Battery Failure, Reduced Performance",18,testing purpose,,,2025-04-18 05:41:34,2
+45,16,Battery Failure,15,Testing purpose,wsf,2025-04-18 11:37:03,2025-04-18 11:36:32,1
+46,18,Battery Failure,15,reason,abcd,2025-04-22 03:17:12,2025-04-22 03:14:13,1
+47,12,"Battery Failure, Reduced Performance",2,Claim the battery warranty.,Resolve the batttery,2025-04-30 06:28:05,2025-04-30 06:26:56,1
+48,12,Battery Failure,2,yes claim,yes,2025-04-30 06:29:31,2025-04-30 06:29:17,1
+49,12,Battery Failure,20,yes,Yes,2025-04-30 06:30:42,2025-04-30 06:29:38,1
+50,12,Battery Failure,20,YES CLAIM,,,2025-04-30 06:34:05,2
+51,3,Battery Failure,20,claim,Yes,2025-05-21 05:18:21,2025-05-21 05:14:22,1
+52,20,Reduced Performance,68,not okay,done,2025-05-28 07:47:23,2025-05-28 07:47:07,1
+53,18,Battery Pack Failure,15,w,,,2025-06-16 05:08:25,2
+54,21,Reduced Performance,68,no power,,,2025-07-01 03:31:42,2
+55,22,Battery Failure,15,clim,use,2025-07-26 11:15:52,2025-07-26 11:14:56,1
+56,22,Battery Failure,15,clim,cimed,2025-07-26 11:20:50,2025-07-26 11:19:58,1
+57,22,Reduced Performance,15,red,upa,2025-07-26 11:30:10,2025-07-26 11:29:11,1
+58,22,Battery Failure,15,fail,d,2025-07-26 11:36:29,2025-07-26 11:35:11,1
+59,22,Reduced Performance,15,d,s,2025-07-26 11:37:47,2025-07-26 11:36:59,1
+60,22,Battery Failure,15,s,d,2025-07-26 11:40:23,2025-07-26 11:37:54,1
+61,22,Battery Failure,15,d,d,2025-07-26 11:40:41,2025-07-26 11:40:34,1
+62,6,Battery Failure,2,BA-005,BA-005,2025-07-31 09:48:53,2025-07-31 09:48:35,1
+63,11,Battery Failure,106,TEST,Done,2025-09-22 05:08:31,2025-08-11 10:50:03,1
+64,24,"Battery Failure,Reduced Performance",106,fail,done,2025-09-08 05:43:15,2025-09-06 09:40:55,1
+65,23,Reduced Performance,71,Been Sometimes ,,,2025-10-01 07:59:44,2
+66,24,Battery Failure,71,Cannot Used Anymore,Buy A new Battery ,2025-10-01 08:01:09,2025-10-01 08:00:49,1
+67,25,Battery Failure,71,Cannot Use need to buy new one ,,,2025-10-01 08:05:30,2
+68,27,"Battery Failure,Reduced Performance",77,Testing purpose ,Testing purpose ,2025-10-09 11:38:24,2025-10-09 11:38:05,1
+69,27,Battery Failure,77,Test,Yes,2025-10-21 09:00:46,2025-10-09 11:38:45,1
+70,28,Reduced Performance,18,1310,test,2025-10-13 10:42:00,2025-10-13 10:41:45,1
+71,28,"Battery Failure,Reduced Performance",18,Test,testing,2025-10-14 10:09:37,2025-10-14 10:08:18,1
+72,28,Reduced Performance,77,test,Yes ,2025-10-21 08:45:53,2025-10-14 10:10:04,1
+73,28,Battery Failure,18,Test,testing resolved,2025-12-11 10:56:11,2025-10-21 08:46:13,1
+74,27,Battery Failure,77,Test,,,2025-10-21 09:01:08,2
+75,28,"Battery Failure,Reduced Performance",76,Testing(11-12-2025),,,2025-12-11 10:57:34,2
+76,29,"Battery Failure,Reduced Performance",76,Testing (11-12-2025),Testing battery pack (11-12-2025),2025-12-11 12:02:44,2025-12-11 11:01:34,1
+77,29,Battery Failure,18,Testing (11-12-2025).,Testing (11-12-2025),2025-12-11 12:05:00,2025-12-11 12:03:24,1
+78,130,Battery Failure,18,Battery is dead,,,2026-03-16 09:34:20,2
