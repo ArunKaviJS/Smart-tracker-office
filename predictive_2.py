@@ -2,14 +2,11 @@ import os
 import json
 import time
 import joblib
-import boto3
 import numpy as np
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
-import seaborn as sns
-from datetime import timedelta
 from sqlalchemy import create_engine
 from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestRegressor
@@ -34,19 +31,7 @@ VALID_REASONS = [
     "Structural Damage", "Accident",
 ]
 
-# ─────────────────────────────────────────────
-#  AWS BEDROCK CLIENT
-# ─────────────────────────────────────────────
-AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")
-AWS_SECRET_KEY = os.getenv("AWS_SECRET_KEY")
-REGION         = os.getenv("REGION", "ap-south-1")
 
-bedrock_client = boto3.client(
-    "bedrock-runtime",
-    region_name=REGION,
-    aws_access_key_id=AWS_ACCESS_KEY,
-    aws_secret_access_key=AWS_SECRET_KEY,
-)
 
 # ─────────────────────────────────────────────
 #  PAGE CONFIG
@@ -301,68 +286,70 @@ def preprocess(df: pd.DataFrame) -> pd.DataFrame:
     print("[PRE] Preprocessed sample:\n", df.head())
     return df
 
+
 # ─────────────────────────────────────────────
-#  3b. RESOLVE "OTHERS" → REAL CATEGORY via Claude API
+#  KEYWORD → CATEGORY MAPPING
 # ─────────────────────────────────────────────
+KEYWORD_MAP = {
+    "Wheel Alignment"       : ["wheel", "align", "tyre", "tire", "wobble",
+                                "steering", "rotation", "rim", "axle"],
+
+    "Oiling & Greasing"     : ["oil", "grease", "lubric", "rust", "squeak",
+                                "noise", "friction", "lubricate", "stiff"],
+
+    "Cleaning & Inspection" : ["clean", "inspect", "dirt", "dust", "wash",
+                                "check", "service", "hygiene", "debris"],
+
+    "Parts Replacement"     : ["replace", "part", "spare", "worn", "component",
+                                "swap", "change", "new part", "fitting"],
+
+    "Battery replaced"      : ["battery", "charge", "power", "dead", "electric",
+                                "volt", "discharge", "not starting", "no power"],
+
+    "Brake Adjustment"      : ["brake", "stop", "slow", "skid", "pad",
+                                "braking", "handbrake", "pedal"],
+
+    "Motor Failure"         : ["motor", "engine", "start", "run", "speed",
+                                "drive", "rpm", "not moving", "overheating"],
+
+    "Broken & Needs Welding": ["weld", "broken", "crack", "snap", "bent",
+                                "break", "fracture", "split", "shatter"],
+
+    "Frame Damage"          : ["frame", "body", "dent", "bend", "frame damage",
+                                "chassis", "body damage"],
+
+    "Structural Damage"     : ["structural", "collapse", "deform", "warp",
+                                "twist", "lean", "tilting", "unstable"],
+
+    "Accident"              : ["accident", "crash", "collide", "collision",
+                                "hit", "bump", "impact", "fell", "fall",
+                                "topple", "damaged by"],
+}
+
 def _call_claude_intent(free_text: str) -> str:
     """
-    Call Claude via AWS Bedrock to classify one free-text reason string
-    into one of the 11 VALID_REASONS.
-    Returns the matched category string, or 'Structural Damage' as fallback.
+    Keyword-based intent classifier.
+    Checks free_text against KEYWORD_MAP and returns
+    the category with the most keyword matches.
+    Falls back to 'Structural Damage' if nothing matches.
     """
-    if not AWS_ACCESS_KEY or not AWS_SECRET_KEY:
-        log("AWS_ACCESS_KEY / AWS_SECRET_KEY not set — cannot call Bedrock", "ERR")
-        print("[INTENT] ERROR: AWS credentials missing")
-        return "Structural Damage"
+    text_lower = free_text.lower()
+    print(f"[INTENT] Classifying: '{free_text[:60]}'")
 
-    categories_list = "\n".join(f"- {r}" for r in VALID_REASONS)
-    prompt = (
-        f"You are a trolley maintenance classifier.\n"
-        f"A user described a maintenance issue in plain English:\n"
-        f"\"{free_text}\"\n\n"
-        f"Classify it into EXACTLY ONE of these categories:\n"
-        f"{categories_list}\n\n"
-        f"Rules:\n"
-        f"- Reply with ONLY the category name, nothing else.\n"
-        f"- No punctuation, no explanation, no extra words.\n"
-        f"- If truly ambiguous, pick the closest physical match."
-    )
+    scores = {}
+    for category, keywords in KEYWORD_MAP.items():
+        score = sum(1 for kw in keywords if kw in text_lower)
+        if score > 0:
+            scores[category] = score
+            print(f"[INTENT]   {category}: {score} match(es)")
 
-    payload = {
-        "anthropic_version": "bedrock-2023-05-31",
-        "max_tokens": 30,
-        "messages": [{"role": "user", "content": prompt}],
-    }
+    if scores:
+        best = max(scores, key=scores.get)
+        print(f"[INTENT] Winner → '{best}' (score={scores[best]})")
+        return best
 
-    try:
-        response = bedrock_client.invoke_model(
-            modelId="global.anthropic.claude-sonnet-4-6",
-            body=json.dumps(payload),
-            contentType="application/json",
-            accept="application/json",
-        )
-        body   = json.loads(response["body"].read())
-        result = body["content"][0]["text"].strip()
-        print(f"[INTENT] '{free_text[:60]}' → '{result}'")
-
-        # Exact match (case-insensitive)
-        for cat in VALID_REASONS:
-            if cat.lower() == result.lower():
-                return cat
-
-        # Partial match fallback
-        for cat in VALID_REASONS:
-            if result.lower() in cat.lower() or cat.lower() in result.lower():
-                log(f"Partial match: '{result}' → '{cat}'", "WARN")
-                return cat
-
-        log(f"Bedrock returned unknown category '{result}' → defaulting to 'Structural Damage'", "WARN")
-        return "Structural Damage"
-
-    except Exception as e:
-        log(f"Bedrock API error for '{free_text[:40]}': {e}", "ERR")
-        print(f"[INTENT] Bedrock error: {e}")
-        return "Structural Damage"
+    print(f"[INTENT] No keyword match → defaulting to 'Structural Damage'")
+    return "Structural Damage"
 
 
 def resolve_others(df: pd.DataFrame):
