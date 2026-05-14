@@ -1,3 +1,8 @@
 venv
 .env
 db_data
+processed_data
+my_prod
+pkl
+sythetic data
+predictive Maintenance data

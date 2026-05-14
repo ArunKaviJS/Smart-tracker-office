@@ -25,13 +25,13 @@ DATABASE=os.getenv("DB_DATABASE")
 # # Load into DataFrame (auto structured)
 # df = pd.read_sql("SELECT * FROM tbl_trolley_activity_history", db)
 
-# # Save as clean CSV
+# # Save as clean CSV   
 # df.to_csv("tbl_trolley_activity_history.csv", index=False)
 
 # print("CSV exported with proper structure!")
 # cursor = db.cursor()
 
-
+###=========sqlAlchemy========
 engine = create_engine(
     f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:3306/{DATABASE}"
 )
@@ -40,8 +40,13 @@ print("Connected using SQLAlchemy!")
 
 
         
-df = pd.read_sql("SELECT * FROM tbl_wifi_fingerprint", engine)
-print("tbl_wifi_fingerprint")
+df = pd.read_sql("SELECT * FROM tbl_trolley_maintenance_50k", engine)
+print("tbl_trolley_maintenance_50k")
 print(df.head())
 
-df.to_csv("tbl_wifi_fingerprint.csv", index=False)
+# df.to_csv("tbl_wifi_fingerprint.csv", index=False)
+
+###========================================================================
+df=pd.read_csv(r'predictive Maintenance data\tbl_trolley.csv')
+
+print(df.head())
