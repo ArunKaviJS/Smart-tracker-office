@@ -275,17 +275,17 @@ def preprocess(df: pd.DataFrame):
                 warn_md(f"<b>{col}</b>: {null_pct*100:.1f}% nulls (≥30%) → not dropped (review manually)")
     ok_md(f"Rows after null handling: {len(df):,} &nbsp;(removed {orig_rows - len(df):,} rows)")
 
-    # ── Step 2: Outlier capping (IQR) ────────────────────────────────
-    st.subheader("Step 2 — Outlier Capping (IQR Method)")
-    cap_cols = ["trolley_count"]
-    for col in cap_cols:
-        if col in df.columns:
-            Q1, Q3 = df[col].quantile(0.25), df[col].quantile(0.75)
-            IQR    = Q3 - Q1
-            lo, hi = Q1 - 1.5*IQR, Q3 + 1.5*IQR
-            n_out  = ((df[col] < lo) | (df[col] > hi)).sum()
-            df[col] = df[col].clip(lower=lo, upper=hi)
-            info_md(f"<b>{col}</b>: capped {n_out} outliers → range [{lo:.1f}, {hi:.1f}]")
+    # # ── Step 2: Outlier capping (IQR) ────────────────────────────────
+    # st.subheader("Step 2 — Outlier Capping (IQR Method)")
+    # cap_cols = ["trolley_count"]
+    # for col in cap_cols:
+    #     if col in df.columns:
+    #         Q1, Q3 = df[col].quantile(0.25), df[col].quantile(0.75)
+    #         IQR    = Q3 - Q1
+    #         lo, hi = Q1 - 1.5*IQR, Q3 + 1.5*IQR
+    #         n_out  = ((df[col] < lo) | (df[col] > hi)).sum()
+    #         df[col] = df[col].clip(lower=lo, upper=hi)
+    #         info_md(f"<b>{col}</b>: capped {n_out} outliers → range [{lo:.1f}, {hi:.1f}]")
 
     # ── Step 3: Feature Engineering ──────────────────────────────────
     st.subheader("Step 3 — Feature Engineering (Cyclical Encoding)")
@@ -636,12 +636,31 @@ def main():
     # PAGE: Live Forecast
     # ═════════════════════════════════════════════════════════════════
     elif page == "🔮 Live Forecast":
-        # Auto-load model from disk if not in session
-        if st.session_state.model is None and os.path.exists(MODEL_PATH):
-            loaded_xgb_regressor = joblib.load(MODEL_PATH)
-            st.session_state.model = loaded_xgb_regressor
-            st.session_state.feature_cols = FEATURE_COLS
-            info_md("Auto-loaded <b>loaded_xgb_regressor</b> from disk.")
+        # ── Model Load Section ─────────────────────────────────────────
+        col_load, col_status = st.columns([2, 3])
+
+        with col_load:
+            if os.path.exists(MODEL_PATH):
+                if st.button("📂 Load Model (xgb_trolley_model.joblib)", type="primary"):
+                    loaded_xgb_regressor = joblib.load(MODEL_PATH)
+                    st.session_state.model = loaded_xgb_regressor
+                    st.session_state.feature_cols = FEATURE_COLS
+                    ok_md("Model loaded successfully — <b>loaded_xgb_regressor</b> is ready!")
+            else:
+                warn_md("No model file found at <b>xgb_trolley_model.joblib</b> — train first.")
+
+        with col_status:
+            if st.session_state.model is not None:
+                ok_md("✅ Model is loaded and ready for prediction.")
+                # Show model file metadata
+                import time
+                mod_time = os.path.getmtime(MODEL_PATH)
+                trained_on = pd.Timestamp(mod_time, unit='s').strftime('%d %b %Y  %H:%M')
+                info_md(f"Model file last saved: <b>{trained_on}</b>")
+            else:
+                warn_md("No model loaded yet — click the button.")
+
+        st.markdown("---")
 
         if st.session_state.model is None:
             warn_md("No model found. Please train or load a model from <b>🤖 Train Model</b>.")
