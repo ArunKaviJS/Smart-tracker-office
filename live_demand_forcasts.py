@@ -382,7 +382,9 @@ def forecast_next_5_days(tc_df: pd.DataFrame, model, feature_cols: list):
 
     # Last entry date → start forecast from next day
     last_date  = tc_df["date"].max()
+    st.write('last date',last_date)
     start_date = last_date + pd.Timedelta(days=1)
+    st.write('start_date',start_date)
     end_date   = start_date + pd.Timedelta(days=4)
 
     st.markdown(
@@ -422,6 +424,8 @@ def forecast_next_5_days(tc_df: pd.DataFrame, model, feature_cols: list):
     pred_df["predicted_trolleys"] = (
         model.predict(X_pred).clip(0).round().astype(int)
     )
+    st.write('pred_df')
+    st.dataframe(pred_df)
 
     # ── Tabs: one per day ─────────────────────────────────────────────
     tab_labels = [
@@ -501,6 +505,7 @@ def forecast_next_5_days(tc_df: pd.DataFrame, model, feature_cols: list):
         .reset_index()
     )
     gz_summary["date"] = gz_summary["date"].dt.strftime("%Y-%m-%d")
+    st.write('gz_summary')
     st.dataframe(gz_summary, use_container_width=True)
 
     return pred_df
@@ -664,14 +669,27 @@ def main():
 
         if st.session_state.model is None:
             warn_md("No model found. Please train or load a model from <b>🤖 Train Model</b>.")
-        elif st.session_state.trolley_count is None:
-            warn_md("No data loaded. Please fetch data from <b>📥 Fetch & Process Data</b>.")
         else:
-            forecast_next_5_days(
-                st.session_state.trolley_count,
-                st.session_state.model,
-                st.session_state.feature_cols,
-            )
+            # ── Auto fetch data if not loaded ─────────────────────────────
+            if st.session_state.trolley_count is None:
+                info_md("Model is ready. Fetching latest data from DB for forecast…")
+                try:
+                    with st.spinner("Fetching data from MySQL…"):
+                        raw = fetch_raw()
+                        tc  = build_trolley_count(raw)
+                    st.session_state.trolley_count = tc
+                    ok_md(f"Data loaded — {len(tc):,} records up to <b>{tc['date'].max().date()}</b>")
+                except Exception as e:
+                    st.error(f"❌ Failed to fetch data: {e}")
+                    warn_md("Check DB connection in <b>.env</b> file.")
+
+            # ── Run forecast if data now available ────────────────────────
+            if st.session_state.trolley_count is not None:
+                forecast_next_5_days(
+                    st.session_state.trolley_count,
+                    st.session_state.model,
+                    st.session_state.feature_cols,
+                )
 
 
 if __name__ == "__main__":
