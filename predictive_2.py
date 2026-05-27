@@ -171,7 +171,7 @@ def load_data() -> pd.DataFrame:
     HOST     = os.getenv("DB_HOST",     "localhost")
     USER     = os.getenv("DB_USER",     "root")
     PASSWORD = os.getenv("DB_PASSWORD", "")
-    DATABASE = os.getenv("DB_DATABASE", "trolley_db")
+    DATABASE = os.getenv("DB_DATABASE", "predictive_maintainance")
 
     conn_str = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:3306/{DATABASE}"
     print(f"[DB] Engine → {conn_str.replace(PASSWORD, '****')}")
