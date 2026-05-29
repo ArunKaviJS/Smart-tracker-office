@@ -1,0 +1,7 @@
+sqlalchemy
+pymysql
+openai
+pydantic
+python-dotenv
+rich
+cryptography   
