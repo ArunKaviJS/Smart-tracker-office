@@ -280,6 +280,6 @@ if st.button("Ask", type="primary") and question.strip():
     # ── Structured JSON (for frontend integration reference) ──
     with st.expander("📦 Structured JSON output (for frontend)", expanded=False):
         display_result = {k: v for k, v in result.items() if k != "data"}
-        display_result["data"] = result["data"][:3]   # preview first 3 rows
+        display_result["data"] = result["data"]   # preview first 3 rows
         display_result["data_note"] = "Full data in 'data' array (truncated here)"
         st.json(display_result)
