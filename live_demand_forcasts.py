@@ -14,8 +14,7 @@ import joblib
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
-import xgboost as xgb
-
+from sklearn.ensemble import RandomForestRegressor
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 from sklearn.model_selection import train_test_split
@@ -25,10 +24,10 @@ from sklearn.preprocessing import LabelEncoder
 load_dotenv()
 
 # ── Constants ──────────────────────────────────────────────────────────────────
-MODEL_PATH   = "xgb_trolley_model.pkl"
+MODEL_PATH = "rf_trolley_model.pkl"
 ENCODER_PATH = "label_encoders.pkl"
 FEATURE_COLS = [
-    "day_num", "is_weekend", "hour", "geozoneId", "geolayerId", "month",
+    "day_num", "is_weekend", "hour", "geozoneId", "month",
     "hour_sin", "hour_cos", "month_sin", "month_cos", "day_sin", "day_cos",
 ]
 DAY_NAMES = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
@@ -99,7 +98,7 @@ def get_engine():
 def fetch_raw() -> pd.DataFrame:
     engine = get_engine()
     query = """
-        SELECT historyId, trolleyId, geozoneId, geolayerId, createdOn
+        SELECT historyId, trolleyId, geozoneId, createdOn
         FROM tbl_device_history
         ORDER BY trolleyId ASC,
                  STR_TO_DATE(createdOn, '%%d-%%m-%%Y %%H:%%i') ASC;
@@ -130,7 +129,6 @@ def build_trolley_count(raw: pd.DataFrame) -> pd.DataFrame:
     stays_raw = df.groupby("stay_id").agg(
         trolleyId  = ("trolleyId",  "first"),
         geozoneId  = ("geozoneId",  "first"),
-        geolayerId = ("geolayerId", "first"),
         enter_time = ("datetime",   "min"),
         exit_time  = ("datetime",   "max"),
         ping_count = ("historyId",  "count"),
@@ -156,7 +154,6 @@ def build_trolley_count(raw: pd.DataFrame) -> pd.DataFrame:
                 records.append({
                     "trolleyId"  : row["trolleyId"],
                     "geozoneId"  : row["geozoneId"],
-                    "geolayerId" : row["geolayerId"],
                     "slot_start" : slot_start,
                     "date"       : slot_start.date(),
                     "hour"       : slot_start.hour,
@@ -170,7 +167,7 @@ def build_trolley_count(raw: pd.DataFrame) -> pd.DataFrame:
     tc = (
         expanded
         .groupby(["date","day_of_week","day_num","is_weekend","hour",
-                  "slot_start","geozoneId","geolayerId"])
+                  "slot_start","geozoneId"])
         ["trolleyId"].nunique()
         .reset_index()
         .rename(columns={"trolleyId": "trolley_count"})
@@ -320,61 +317,80 @@ def preprocess(df: pd.DataFrame):
 
 # ── Model Training ─────────────────────────────────────────────────────────────
 def train_model(df: pd.DataFrame):
-    sec("Model Training — XGBRegressor")
+    sec("Model Training — Random Forest Regressor")
 
     avail = [f for f in FEATURE_COLS if f in df.columns]
-    X, y  = df[avail], df["trolley_count"]
+
+    X = df[avail]
+    y = df["trolley_count"]
 
     info_md(f"Features: <b>{avail}</b>")
-    info_md(f"Target: <b>trolley_count</b> | X shape: {X.shape}  y shape: {y.shape}")
+    info_md(f"Target: <b>trolley_count</b>")
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X,
+        y,
+        test_size=0.2,
+        random_state=42
+    )
+
     c1, c2 = st.columns(2)
     c1.metric("Train rows", f"{len(X_train):,}")
-    c2.metric("Test rows",  f"{len(X_test):,}")
+    c2.metric("Test rows", f"{len(X_test):,}")
 
-    Xgb_boost = xgb.XGBRegressor(
-        n_estimators=100, learning_rate=0.1, random_state=42, verbosity=0
+    model = RandomForestRegressor(
+        n_estimators=300,
+        max_depth=15,
+        min_samples_split=5,
+        min_samples_leaf=2,
+        random_state=42,
+        n_jobs=-1
     )
-    with st.spinner("Training… please wait"):
-        Xgb_boost.fit(X_train, y_train)
 
-    y_pred = Xgb_boost.predict(X_test)
-    mae    = mean_absolute_error(y_test, y_pred)
-    rmse   = np.sqrt(mean_squared_error(y_test, y_pred))
-    r2     = r2_score(y_test, y_pred)
+    with st.spinner("Training Random Forest..."):
+        model.fit(X_train, y_train)
+
+    y_pred = model.predict(X_test)
+
+    mae = mean_absolute_error(y_test, y_pred)
+    rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+    r2 = r2_score(y_test, y_pred)
 
     st.subheader("Model Performance")
+
     m1, m2, m3 = st.columns(3)
-    m1.metric("MAE",      f"{mae:.3f}")
-    m2.metric("RMSE",     f"{rmse:.3f}")
+    m1.metric("MAE", f"{mae:.3f}")
+    m2.metric("RMSE", f"{rmse:.3f}")
     m3.metric("R² Score", f"{r2:.3f}")
 
-    # Feature importance
+    # Feature Importance
     st.subheader("Feature Importance")
-    fi = (
-        pd.DataFrame({"Feature": avail, "Importance": Xgb_boost.feature_importances_})
-        .sort_values("Importance", ascending=True)
-    )
+
+    fi = pd.DataFrame({
+        "Feature": avail,
+        "Importance": model.feature_importances_
+    }).sort_values("Importance", ascending=True)
+
     fig, ax = plt.subplots(figsize=(8, 4))
-    ax.barh(fi["Feature"], fi["Importance"], color="#1a237e")
-    ax.set_title("XGBoost Feature Importance")
-    ax.set_xlabel("Score")
-    st.pyplot(fig); plt.close()
+    ax.barh(fi["Feature"], fi["Importance"])
+    ax.set_title("Random Forest Feature Importance")
+    st.pyplot(fig)
 
-    # Actual vs Predicted (first 100)
-    st.subheader("Actual vs Predicted (first 100 test samples)")
+    # Actual vs Predicted
+    st.subheader("Actual vs Predicted")
+
     fig2, ax2 = plt.subplots(figsize=(12, 4))
-    ax2.plot(y_test.values[:100], label="Actual",    color="#1a237e", alpha=0.85)
-    ax2.plot(y_pred[:100],        label="Predicted", color="#e53935", alpha=0.85, linestyle="--")
-    ax2.legend(); ax2.set_title("Actual vs Predicted")
-    st.pyplot(fig2); plt.close()
+    ax2.plot(y_test.values[:100], label="Actual")
+    ax2.plot(y_pred[:100], label="Predicted")
+    ax2.legend()
+    st.pyplot(fig2)
 
-    # Save
-    joblib.dump(Xgb_boost, MODEL_PATH)
-    ok_md(f"Model saved → <b>{MODEL_PATH}</b>")
-    return Xgb_boost, avail
+    # Save model
+    joblib.dump(model, MODEL_PATH)
 
+    ok_md(f"Random Forest model saved → <b>{MODEL_PATH}</b>")
+
+    return model, avail
 
 # ── Forecast ───────────────────────────────────────────────────────────────────
 def forecast_next_5_days(tc_df: pd.DataFrame, model, feature_cols: list):
@@ -394,13 +410,13 @@ def forecast_next_5_days(tc_df: pd.DataFrame, model, feature_cols: list):
         unsafe_allow_html=True,
     )
 
-    geozone_layer = tc_df.groupby("geozoneId")["geolayerId"].first().reset_index()
+    geozones = tc_df["geozoneId"].unique()
     forecast_dates = [start_date + pd.Timedelta(days=i) for i in range(5)]
 
     # Build prediction grid
     rows = []
     for fd in forecast_dates:
-        for _, gz in geozone_layer.iterrows():
+        for geozone in geozones:
             for hr in range(24):
                 rows.append({
                     "date"       : fd,
@@ -408,8 +424,7 @@ def forecast_next_5_days(tc_df: pd.DataFrame, model, feature_cols: list):
                     "day_num"    : fd.dayofweek,
                     "is_weekend" : int(fd.dayofweek >= 5),
                     "hour"       : hr,
-                    "geozoneId"  : gz["geozoneId"],
-                    "geolayerId" : gz["geolayerId"],
+                    "geozoneId"  : geozone,
                     "month"      : fd.month,
                     "hour_sin"   : np.sin(2 * np.pi * hr / 24),
                     "hour_cos"   : np.cos(2 * np.pi * hr / 24),
@@ -629,7 +644,7 @@ def main():
             with col_b:
                 if os.path.exists(MODEL_PATH):
                     if st.button("📂 Load Saved Model from Disk"):
-                        loaded_xgb_regressor = joblib.load(MODEL_PATH)
+                        loaded_rf_model  = joblib.load(MODEL_PATH)
                         st.session_state.model        = loaded_xgb_regressor
                         st.session_state.feature_cols = [
                             f for f in FEATURE_COLS
@@ -647,8 +662,8 @@ def main():
         with col_load:
             if os.path.exists(MODEL_PATH):
                 if st.button("📂 Load Model (xgb_trolley_model.joblib)", type="primary"):
-                    loaded_xgb_regressor = joblib.load(MODEL_PATH)
-                    st.session_state.model = loaded_xgb_regressor
+                    loaded_rf_model  = joblib.load(MODEL_PATH)
+                    st.session_state.model = loaded_rf_model 
                     st.session_state.feature_cols = FEATURE_COLS
                     ok_md("Model loaded successfully — <b>loaded_xgb_regressor</b> is ready!")
             else:
