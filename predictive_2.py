@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from sqlalchemy import create_engine
 from sklearn.preprocessing import LabelEncoder
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import mean_absolute_error, r2_score
 from dotenv import load_dotenv
 load_dotenv()
@@ -19,7 +19,7 @@ load_dotenv()
 PKL_DIR           = "my_prod"
 TYPE_ENC_PATH     = os.path.join(PKL_DIR, "type_encoder.pkl")
 REASON_ENC_PATH   = os.path.join(PKL_DIR, "reason_encoder.pkl")
-MODEL_PATH        = os.path.join(PKL_DIR, "model.pkl")
+MODEL_PATH        = os.path.join(PKL_DIR, "model00.pkl")
 OTHERS_CACHE_PATH = os.path.join(PKL_DIR, "others_intent_cache.json")
 os.makedirs(PKL_DIR, exist_ok=True)
 
@@ -486,20 +486,31 @@ def train_model(df: pd.DataFrame):
     y = df["difference"]
 
     print(f"[TRAIN] X shape: {X.shape}, y shape: {y.shape}")
-    print(f"[TRAIN] y stats — mean: {y.mean():.2f}, std: {y.std():.2f}, "
-          f"min: {y.min()}, max: {y.max()}")
+    print(
+        f"[TRAIN] y stats — mean: {y.mean():.2f}, std: {y.std():.2f}, "
+        f"min: {y.min()}, max: {y.max()}"
+    )
 
-    model = RandomForestRegressor(n_estimators=200, random_state=42, n_jobs=-1)
+    # Train Decision Tree
+    model = DecisionTreeRegressor(
+        random_state=42,
+        max_depth=None,
+        min_samples_split=2,
+        min_samples_leaf=1
+    )
+
     model.fit(X, y)
 
     y_pred = model.predict(X)
-    mae    = mean_absolute_error(y, y_pred)
-    r2     = r2_score(y, y_pred)
-    print(f"[TRAIN] Train MAE: {mae:.3f}  |  R²: {r2:.4f}")
-    log(f"Train MAE={mae:.2f}  R²={r2:.4f}", "INFO")
+    mae = mean_absolute_error(y, y_pred)
+    r2 = r2_score(y, y_pred)
+
+    print(f"[TRAIN] Train MAE: {mae:.3f} | R²: {r2:.4f}")
+    log(f"Train MAE={mae:.2f} R²={r2:.4f}", "INFO")
 
     joblib.dump(model, MODEL_PATH)
     log(f"Model saved → {MODEL_PATH}", "INFO")
+
     return model, mae, r2
 
 # ─────────────────────────────────────────────
@@ -589,7 +600,7 @@ def main():
 
         st.markdown("---")
         force_retrain = st.checkbox("🔁 Force Retrain Model", value=False,
-                                    help="Ignore existing model.pkl and retrain from scratch")
+                                    help="Ignore existing model00.pkl and retrain from scratch")
         st.markdown("---")
         run_btn = st.button("▶ RUN FULL PIPELINE", use_container_width=True)
 
